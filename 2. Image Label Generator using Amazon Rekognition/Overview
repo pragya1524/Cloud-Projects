@@ -1,0 +1,52 @@
+🧠 Amazon Rekognition Image Label Generator
+
+This project uses Amazon Rekognition to detect labels and draw bounding boxes on images stored in an Amazon S3 bucket. It then visualizes and saves the output image with highlighted objects and their labels.
+MATPLOTLIB - Matplotlib is a Python library used for creating static, animated, and interactive visualizations. It is widely used for plotting graphs, charts, and image data in scientific and data analysis applications.
+
+🔧 Features
+
+- 📦 Pulls image from an S3 bucket  
+- 🧠 Detects objects using Amazon Rekognition  
+- 📏 Draws bounding boxes using matplotlib  
+- 💾 Saves the labeled image for download  
+- ☁️ Runs entirely within AWS CloudShell (no local setup needed)
+
+
+🚀 How It Works
+
+1. Upload your image(s) to an S3 bucket  
+2. Define IAM roles for giving access of S3 bucket to AWS Rekognition and vice versa
+3. Define IAM authentication and access for user access to the cloudshell
+2. Run the Python script in AWS CloudShell  
+3. The script:
+   - Calls Amazon Rekognition to detect labels
+   - Draws bounding boxes on the image
+   - Saves the result locally as `output_with_boxes.jpg`
+
+⚙️ Requirements
+
+- AWS Account
+- S3 bucket with image(s)
+- IAM permissions for Rekognition and S3:
+  - `AmazonRekognitionCustomLabelsFullAcces`
+
+In CloudShell, install dependencies:
+
+```bash
+pip3 install matplotlib pillow --user
+
+🧹 Cleanup 
+To avoid charges:
+
+Delete your S3 bucket and files
+
+Detach/delete IAM roles or policies
+
+Remove any Rekognition resources (if created)
+
+Some Use Cases
+1. in a smart surveillance system to recognize suspicious objects and activites.
+2. Identifying products in a store for inventory management
+3. Analyzing customer behavior on retail stores
+4. Providing accessibility options for those who are visually impaired
+
