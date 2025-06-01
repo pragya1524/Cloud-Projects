@@ -1,0 +1,51 @@
+import boto3
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from PIL import Image
+import io
+
+# Config
+bucket = 'image-label-generator-bucket'  # Replace with your bucket name
+photo = 'image.jpg'                      # Replace with your image filename
+
+# Rekognition client
+rekognition = boto3.client('rekognition')
+
+# Detect labels with bounding boxes
+response = rekognition.detect_labels(
+    Image={'S3Object': {'Bucket': bucket, 'Name': photo}},
+    MaxLabels=10,
+    MinConfidence=70
+)
+
+# Get image from S3
+s3 = boto3.client('s3')
+s3_object = s3.get_object(Bucket=bucket, Key=photo)
+image_bytes = s3_object['Body'].read()
+image = Image.open(io.BytesIO(image_bytes))
+
+# Plot
+fig, ax = plt.subplots(1)
+ax.imshow(image)
+
+# Draw bounding boxes
+for label in response['Labels']:
+    for instance in label.get('Instances', []):
+        box = instance['BoundingBox']
+        width, height = image.size
+        left = box['Left'] * width
+        top = box['Top'] * height
+        w = box['Width'] * width
+        h = box['Height'] * height
+
+        # Draw rectangle
+        rect = patches.Rectangle((left, top), w, h, linewidth=2, edgecolor='red', facecolor='none')
+        ax.add_patch(rect)
+
+        # Add label
+        ax.text(left, top - 5, label['Name'], color='red', fontsize=10, weight='bold')
+
+# Hide axes and save the result
+plt.axis('off')
+plt.savefig("output_with_boxes.jpg", bbox_inches='tight')
+print("✅ Image saved as output_with_boxes.jpg")
