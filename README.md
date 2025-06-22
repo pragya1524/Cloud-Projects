@@ -26,4 +26,24 @@ Each project is organized into its own sub-folder with a dedicated README that i
 - Architecture: **Serverless**, **Event-driven**, **Batch processing**, **Storage-based workflows**
 
 
+---
+
+## 📜 About Me
+
+I'm **Pragya Sharma**, a B.Tech CSE student passionate about **Cloud Computing**, and **Native Android Development**. I love turning innovative ideas into cloud-native apps that are scalable, efficient, and real-world applicable.
+
+📫 **Email:** pragyasharma1524@gmail.com  
+🔗 **LinkedIn:** [linkedin.com/in/pr240104](https://www.linkedin.com/in/pr240104)
+
+---
+
+## 🤝 Contributions & Feedback
+
+Feel free to fork this repo, raise issues, or suggest improvements. If you find any of these projects helpful or interesting, giving the repo a ⭐️ would mean a lot!
+
+---
+
+## 🚀 Let's Build on the Cloud!
+
+
 
