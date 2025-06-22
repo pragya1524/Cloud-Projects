@@ -1,0 +1,78 @@
+ 🗣️ Amazon Polly Text Narrator
+
+This project uses **Amazon Polly** to convert uploaded text files into lifelike speech. When a `.txt` file is uploaded to an Amazon S3 bucket, a **Lambda function** automatically converts it into an `.mp3` using Polly and stores it back in the same bucket.
+
+---
+
+📁 Project Structure
+
+```
+📂 polly-text-narrator
+├── lambda_function.py         # Main Lambda code
+├── sample_text.txt            # Sample story input
+└── README.md                  # Project documentation
+```
+
+---
+
+## 🌐 Services Used
+
+* **Amazon S3** – Stores input `.txt` files and output `.mp3` files.
+* **Amazon Polly** – Converts text into lifelike speech.
+* **AWS Lambda** – Serverless compute to run the conversion code.
+* **AWS IAM** – Manages access and permissions.
+* **CloudWatch** – Monitors logs and function execution.
+
+---
+
+## 🚀 How It Works
+
+1. A `.txt` file is uploaded to an S3 bucket.
+2. This triggers a Lambda function via an **S3 event notification**.
+3. Lambda reads the file, calls Amazon Polly to synthesize speech.
+4. The generated `.mp3` is stored back in the same S3 bucket.
+
+---
+
+## 🔧 Setup Instructions
+
+1. **Create an S3 bucket** (e.g., `polly-text-narrate-yourname`)
+2. **Create an IAM role** with these permissions:
+
+   * `AmazonS3FullAccess`
+   * `AmazonPollyFullAccess`
+   * `AWSLambdaBasicExecutionRole`
+3. **Create a Lambda function** using Python 3.12
+
+   * Paste `lambda_function.py` code
+   * Assign the IAM role
+4. **Add an S3 trigger**
+
+   * Event: Object Created (`PUT`)
+   * Suffix: `.txt`
+5. Upload `.txt` file → get `.mp3` output
+
+---
+
+## 🧼 Cleanup
+
+To avoid AWS charges:
+
+* Delete uploaded `.txt` and `.mp3` files from S3
+* Delete Lambda function, S3 bucket, and IAM role
+* Delete CloudWatch logs
+
+---
+
+## 📌 Notes
+
+* Maximum Polly input: **3000 characters**
+* Use filenames **without spaces** to avoid encoding issues (`short_story.txt`)
+* Polly supports many languages, accents, and voices
+
+---
+
+
+---
+
+Let me know if you'd like this as a downloadable `README.md` file!
