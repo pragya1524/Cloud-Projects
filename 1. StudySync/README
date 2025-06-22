@@ -42,3 +42,5 @@ PartyRock apps are **serverless and free to build**, but:
 - They do not run timers or store long-term data.
 - If unused, apps may be cleaned up from your account.
 - You can always export screenshots or the prompt logic if needed.
+
+For all the steps and screenshots, refer to the pdf above
