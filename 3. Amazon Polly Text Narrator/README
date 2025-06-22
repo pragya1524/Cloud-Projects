@@ -1,7 +1,7 @@
  🗣️ Amazon Polly Text Narrator
 
 This project uses **Amazon Polly** to convert uploaded text files into lifelike speech. When a `.txt` file is uploaded to an Amazon S3 bucket, a **Lambda function** automatically converts it into an `.mp3` using Polly and stores it back in the same bucket.
-
+Architectural diagram is present in the pdf
 ---
 
 📁 Project Structure
