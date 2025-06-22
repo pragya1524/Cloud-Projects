@@ -10,8 +10,7 @@ Each project is organized into its own sub-folder with a dedicated README that i
 
 | Project Name                         | Description                                                                 | Technologies Used                                   |
 |--------------------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------|
-| `partyrock-task-scheduler-app`       | A GenAI-based app built with AWS PartyRock to manage and prioritize tasks   | AWS PartyRock, GenAI, Prompt Engineering            |
-|                                      | using natural language.                                                     |                                                     |
+| `partyrock-task-scheduler-app`       | A GenAI-based app built with AWS PartyRock to manage and prioritize tasks  using natural language.| AWS PartyRock, GenAI, Prompt Engineering            |
 | `image-label-generator`              | Uses Amazon Rekognition to detect image labels and draw bounding boxes.     | AWS Rekognition, S3, IAM, Python, Boto3, MATPLOTLIB |
 
 > ✅ *More projects will be added regularly as I continue to explore cloud services and architectures.*
